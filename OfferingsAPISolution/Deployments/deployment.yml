@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: offerings-api
+spec:
+  selector:
+    matchLabels:
+      app: offerings-api
+  template:
+    metadata:
+      labels:
+        app: offerings-api
+    spec:
+      containers:
+      - name: offerings-api
+        image: offeringsapi:v0.1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80

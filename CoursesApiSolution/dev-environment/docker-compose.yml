@@ -1,0 +1,17 @@
+services:
+  offerings:
+    image: offeringsapi:v0.1
+    ports:
+      - 1340:80
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    restart: always
+    environment:
+      MSSQL_SA_PASSWORD: TokyoJoe138!
+      ACCEPT_EULA: true
+    ports:
+      - 1433:1433
+    volumes:
+      - db-data:/var/opt/mssql
+volumes:
+  db-data:
